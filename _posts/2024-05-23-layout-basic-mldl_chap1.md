@@ -35,7 +35,7 @@ toc_sticky: true
 
 Lorem ipsum dolor sit amet, test link adipiscing elit. **This is strong**. Nullam dignissim convallis est. Quisque aliquam.
 
-![Smithsonian Image](https://youngyoony.github.io/assets/images/3953273590_704e3899d5_m.jpg)
+![Smithsonian Image](https://youngyoony.github.io/assets/images/3953273590_704e3899d5_m.png)
 {: .image-right}
 
 

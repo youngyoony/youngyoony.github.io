@@ -1,9 +1,9 @@
 # main links
 main:
-  #- title: "Home"
-  #  url: "/"
+  - title: "Home"
+    url: "/"
   - title: "Introduce"
-    url: /docs/_pages/about/
+    url: /about/
   - title: "Category"
     url: "/categories/"
   - title: "Tags"

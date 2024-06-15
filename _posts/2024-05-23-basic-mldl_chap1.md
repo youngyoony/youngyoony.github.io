@@ -60,8 +60,7 @@ plt.xlabel('length')
 plt.ylabel('weight')
 plt.show()
 ```
-
-{% raw %}<img src="{{ site.url }}{{ site.baseurl }}/assets/images/ml0103_scatterplot.png" alt="">{% endraw %}
+{% raw %}<img src="https://youngyoony.github.io/assets/images/ml0103_scatterplot.png" alt="">{% endraw %}
 
 2-1. 빙어 사이즈 샘플
 ```python
@@ -78,7 +77,7 @@ plt.ylabel('weight')
 plt.show()
 ```
 
-3. k-최근접 이웃 확인
+3-1. k-최근접 이웃 확인
 ```python
 length = bream_length + smelt_length
 weight = bream_weight + smelt_weight
@@ -86,4 +85,4 @@ fish_data = [[l, w] for l, w in zip(length, weight)] # [l,w]가 하나의 원소
 print(fish_data)
 ```
 
-4. 도미는 1, 빙어는 0으로 구분 (최종적으로 )
+4-1. 도미는 1, 빙어는 0으로 구분 (최종적으로 )

@@ -27,7 +27,7 @@ This page is for summarizing my self-study of the book “Self-Study Machine Lea
 **Deep Learning**<br>
 머신러닝 알고리즘 중에서 인공 신경망(artificial neural network)을 기반으로 한 방법들을 딥러닝이라고 부름. <br>
 * TensorFlow: 구글의 오픈소스 딥러닝 라이브러리. 이 책의 7장부터 9장까지 TensorFlow를 사용한 딥러닝을 사용한 알고리즘을 다룸.<br>
-* PyTorch: 페이스북의 오픈소스 딥러닝 라이브러리.<br><br><br>
+* PyTorch: 페이스북의 오픈소스 딥러닝 라이브러리.<br><br>
 
 
 ## 01-2 코랩과 주피터 노트북<br>
@@ -36,7 +36,7 @@ This page is for summarizing my self-study of the book “Self-Study Machine Lea
 여기서 텍스트 셀(cell - 코랩에서 실행할 수 있는 최소 단위 / 마크다운, HTML 사용 가능)과 코드 셀, 출력 란이 구분됨.<br>
 
 **Jupyter**<br>
-대화식 프로그래밍 환경을 의미함. 주피터 프로젝트의 대표 제품이 Notebook임.<br><br><br>
+대화식 프로그래밍 환경을 의미함. 주피터 프로젝트의 대표 제품이 Notebook임.<br><br>
 
 
 ## 01-3 마켓과 머신러닝<br>
@@ -76,8 +76,9 @@ plt.xlabel('length')
 plt.ylabel('weight')
 plt.show()
 ```
+{% raw %}<img src="https://youngyoony.github.io/assets/images/ml0103_scatterplot2.png" alt="">{% endraw %}
 
-3-1. k-최근접 이웃 확인
+3\. k-최근접 이웃 확인
 ```python
 length = bream_length + smelt_length
 weight = bream_weight + smelt_weight
@@ -85,4 +86,4 @@ fish_data = [[l, w] for l, w in zip(length, weight)] # [l,w]가 하나의 원소
 print(fish_data)
 ```
 
-4-1. 도미는 1, 빙어는 0으로 구분 (최종적으로 )
+4\. 도미는 1, 빙어는 0으로 구분 (최종적으로 도미 35마리, 빙어 14마리가 나와야 함)

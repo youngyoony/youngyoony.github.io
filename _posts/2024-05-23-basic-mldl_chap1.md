@@ -42,7 +42,7 @@ This page is for summarizing my self-study of the book “Self-Study Machine Lea
 ## 01-3 마켓과 머신러닝<br>
 **생선 분류 문제**<br>
 
-1-1. 도미 사이즈 샘플
+<b>1-1. 도미 사이즈 샘플</b>
 ```python
 bream_length = [25.4, 26.3, 26.5, 29.0, 29.0, 29.7, 29.7, 30.0, 30.0, 30.7, 31.0, 31.0, 
 31.5, 32.0, 32.0, 32.0, 33.0, 33.0, 33.5, 33.5, 34.0, 34.0, 34.5, 35.0, 
@@ -52,7 +52,7 @@ bream_weight = [242.0, 290.0, 340.0, 363.0, 430.0, 450.0, 500.0, 390.0, 450.0, 5
 700.0, 725.0, 720.0, 714.0, 850.0, 1000.0, 920.0, 955.0, 925.0, 975.0, 950.0]
 ```
 
-1-2. matplotlib으로 도미 산점도 그리기
+<b>1-2. matplotlib으로 도미 산점도 그리기</b>
 ```python
 import matplotlib.pyplot as plt
 plt.scatter(bream_length, bream_weight)
@@ -62,13 +62,13 @@ plt.show()
 ```
 {% raw %}<img src="https://youngyoony.github.io/assets/images/ml0103_scatterplot.png" alt="">{% endraw %}
 
-2-1. 빙어 사이즈 샘플
+<b>2-1. 빙어 사이즈 샘플</b>
 ```python
 smelt_length = [9.8, 10.5, 10.6, 11.0, 11.2, 11.3, 11.8, 11.8, 12.0, 12.2, 12.4, 13.0, 14.3, 15.0]
 smelt_weight = [6.7, 7.5, 7.0, 9.7, 9.8, 8.7, 10.0, 9.9, 9.8, 12.2, 13.4, 12.2, 19.7, 19.9]
 ```
 
-2-2. matplotlib으로 빙어 산점도 그리기
+<b>2-2. matplotlib으로 빙어 산점도 그리기</b>
 ```python
 plt.scatter(bream_length, bream_weight)
 plt.scatter(smelt_length, smelt_weight)
@@ -78,29 +78,29 @@ plt.show()
 ```
 {% raw %}<img src="https://youngyoony.github.io/assets/images/ml0103_scatterplot2.png" alt="">{% endraw %}
 
-3\. k-최근접 이웃 확인
+<b>3\. k-최근접 이웃 확인</b>
 ```python
 length = bream_length + smelt_length
 weight = bream_weight + smelt_weight
 fish_data = [[l, w] for l, w in zip(length, weight)] # [l,w]가 하나의 원소로 구성된 리스트
 print(fish_data)
 ```
-<span style="font-size:65%">*zip() 함수는 나열된 리스트에서 원소를 하나씩 꺼내주는 일을 한다.*</span>  
+<span style="font-size:80%">✔︎ zip() 함수는 나열된 리스트에서 원소를 하나씩 꺼내주는 일을 한다.</span>  
 
 
-4\. 도미는 1, 빙어는 0으로 구분 (최종적으로 도미 35마리, 빙어 14마리가 나와야 함)
+<b>4\. 도미는 1, 빙어는 0으로 구분 (최종적으로 도미 35마리, 빙어 14마리가 나와야 함)</b>
 ```python
 fish_target = [1] * 35 + [0] * 14
 print(fish_target)
 ```
-<span style="font-size:65%">*머신러닝에서 2개를 구분하는 경우 찾으려는 대상을 1로, 그 외에는 0으로 놓는다.*</span>  
+<span style="font-size:80%">✔︎ 머신러닝에서 2개를 구분하는 경우 찾으려는 대상을 1로, 그 외에는 0으로 놓는다.</span>  
 
 
-5\. Sklearn 활용하기
+<b>5\. Sklearn 및 KNeighborsClassifier 활용하기</b>
 ```python
 from sklearn.neighbors import KNeighborsClassifier
 ```
-<span style="font-size:65%">*이 코드는 하단 코드와 동일한 코드다.*</span>  
+<span style="font-size:80%">✔︎ 이 코드는 하단 코드와 동일한 코드다.</span>  
 ```python
 import sklearn
 model = sklearn.neighbors.KNeighborsClassifier()
@@ -108,17 +108,41 @@ model = sklearn.neighbors.KNeighborsClassifier()
 ```python
 kn = KNeighborsClassifier() #KNeighborsClassifier 클래스의 객체 만들기
 ```
-<span style="font-size:65%">*이 객체에 fish_data와 fish_target을 전달하여 도미를 찾기 위한 기준을 학습시키기 = 훈련(training)*</span>  
+<span style="font-size:80%">✔︎ 이 객체에 fish_data와 fish_target을 전달하여 도미를 찾기 위한 기준을 학습시키기 = 훈련(training)</span>  
 ```python
 kn.fit(fish_data, fish_target)
 ```
-<span style="font-size:65%">*fit() 메서드는 주어진 데이터로 알고리즘을 훈련시킨다.*</span>  
+<span style="font-size:80%">✔︎ fit() 메서드는 주어진 데이터로 알고리즘을 훈련시킨다.</span>  
 ```python
 kn.score(fish_data, fish_target)
 ```
-<span style="font-size:65%">*score() 메서드는 모델 kn이 얼마나 잘 훈련되었는지를 평가하는 메서드다. = 정확도(accuracy) 1은 모든 데이터를 정확히 맞혔다는 것을 의미, 0은 전부 틀렸다는 걸 의미한다. 여기서 '모델'은 머신러닝 알고리즘을 구현한 프로그램을 의미한다.*</span>
+<span style="font-size:80%">✔︎ score() 메서드는 모델 kn이 얼마나 잘 훈련되었는지를 평가하는 메서드다. = 정확도(accuracy) 1은 모든 데이터를 정확히 맞혔다는 것을 의미, 0은 전부 틀렸다는 걸 의미한다. 여기서 '모델'은 머신러닝 알고리즘을 구현한 프로그램을 의미한다.</span>
 
-6\. k-최근접 이웃 알고리즘 설명
-**Artificial Intelligence**<br>
+<b>6\. k-최근접 이웃 알고리즘 설명</b>
+어떤 데이터에 대한 답을 구할 때 주위의 다른 데이터를 보고 다수를 차지하는 것을 정답으로 사용한다. 새로운 데이터에 대해 예측할 떄는 가장 가까운 직선거리에 어떤 데이터가 있는지를 살피기만 하면 된다.
+단점으로는, 이런 특징 때문에 데이터가 아주 많은 경우에는 사용하기 어려우며, 메모리가 많이 필요하다는 단점이 있다.
+```python
+kn.predict([[30,600]])
+```
+predict() 메서드는 새로운 데이터의 정답을 예측한다. 이 포인트의 예측값은 1이다. 도미는 1이므로 예상과 같다.
+```python
+print(kn._fit_X)
+```
+{% raw %}<img src="https://youngyoony.github.io/assets/images/ml0103_sklearn.png" alt="">{% endraw %}
+```python
+print(kn._fit_y)
+```
+{% raw %}<img src="https://youngyoony.github.io/assets/images/ml0103_sklearn2.png" alt="">{% endraw %}
+즉, k-최근접 이웃 알고리즘은 특별히 훈련되는 게 없다. fit() 메서드에 데이터를 모두 저장하고 있다가 새로운 데이터가 등장하면 가장 가까운 데이터를 참고하여 도미인지 빙어인지를 구분한다.
+KNeighborsClassifier 클래스의 기본값은 5이며, 이 기준은 n_neighbors 매개변수로 바꿀 수 있다.
+```python
+kn49 = KNeighborsClassifier(n_neighbors=49) #참고 데이터를 49개로 한 kn49 모델
+kn49.fit(fish_data, fish_target)
+kn49.score(fish_data, fish_target)
+```
+fish_data의 데이터 49개 중에 도미가 35개로 다수를 차지하기 때문에, 어떤 데이터를 넣어도 무조건 도미로 예측할 것이다. 위 코드의 결과는 대략 0.71428...이 나오는데, 이는 35/49의 값과 동일한 값이다.<br><br><br>
 
-
+**Summary** 1\. 도미 35마리와 빙어 14마리의 길이와 무게를 측정해서 파이썬 리스트로 만든다. 또한 이 도미 & 빙어 데이터를 합쳐 리스트의 리스트로 데이터를 준비했다.
+2\. 사이킷런의 k-최근접 이웃 알고리즘을 사용해서 데이터를 예측했다. 이는 주변에서 가장 가까운 5개의 데이터를 보고 다수결의 원칙에 따라 데이터를 예측하는 모델이다.
+3\. KNeighborsClassifier 클래스의 fit(), score(), predict() 메서드를 사용했다.
+{: .notice--success}

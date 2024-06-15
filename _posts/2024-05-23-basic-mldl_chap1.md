@@ -16,8 +16,7 @@ toc_sticky: true
 This page is for summarizing my self-study of the book “Self-Study Machine Learning + Deep Learning” by Haesun Park, published by Hanbit Media. A brief English version is provided below.<br><br><br>
 
 
-## 01-1 인공지능과 머신러닝, 딥러닝<br><br>
-
+## 01-1 인공지능과 머신러닝, 딥러닝<br>
 **Artificial Intelligence**<br>
 사람처럼 학습하고 추론할 수 있는 지능을 가진 컴퓨터 시스템을 만드는 기술<br><br>
 
@@ -31,8 +30,7 @@ This page is for summarizing my self-study of the book “Self-Study Machine Lea
 * PyTorch: 페이스북의 오픈소스 딥러닝 라이브러리.<br><br><br>
 
 
-## 01-2 코랩과 주피터 노트북<br><br>
-
+## 01-2 코랩과 주피터 노트북<br>
 **Google Colab**<br>
 클라우드 기반의 주피터 노브툭 개발 환경. 즉, 웹 브라우저에서 무료로 파이썬 프로그램을 테스트하고 저장할 수 있는 서비스. [link](https://colab.research.google.com "Colab").<br>
 여기서 텍스트 셀(cell - 코랩에서 실행할 수 있는 최소 단위 / 마크다운, HTML 사용 가능)과 코드 셀, 출력 란이 구분됨.<br>
@@ -41,8 +39,7 @@ This page is for summarizing my self-study of the book “Self-Study Machine Lea
 대화식 프로그래밍 환경을 의미함. 주피터 프로젝트의 대표 제품이 Notebook임.<br><br><br>
 
 
-## 01-3 마켓과 머신러닝<br><br>
-
+## 01-3 마켓과 머신러닝<br>
 **생선 분류 문제**<br>
 
 1-1. 도미 사이즈 샘플
@@ -88,3 +85,5 @@ weight = bream_weight + smelt_weight
 fish_data = [[l, w] for l, w in zip(length, weight)] # [l,w]가 하나의 원소로 구성된 리스트
 print(fish_data)
 ```
+
+4. 도미는 1, 빙어는 0으로 구분 (최종적으로 )

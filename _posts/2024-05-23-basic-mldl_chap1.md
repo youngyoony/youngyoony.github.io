@@ -130,7 +130,7 @@ predict() 메서드는 새로운 데이터의 정답을 예측한다. 이 포인
 ```python
 print(kn._fit_X)
 ```
-{% raw %}<img src="https://youngyoony.github.io/assets/images/ml0103_sklearn.png" alt="" style="width=50px;height:auto;">{% endraw %}
+<img src=https://youngyoony.github.io/assets/images/ml0103_sklearn.png width=50 height=auto>
 
 ```python
 print(kn._fit_y)

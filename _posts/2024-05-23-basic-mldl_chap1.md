@@ -16,6 +16,153 @@ toc_sticky: true
 This page is for summarizing my self-study of the book “Self-Study Machine Learning + Deep Learning” by Haesun Park, published by Hanbit Media. A brief English version is provided below.<br><br><br>
 
 
+
+## 01-1 Artificial Intelligence, Machine Learning, Deep Learning<br>
+**Artificial Intelligence**<br>
+Technology to create computer systems that can learn and reason like humans.<br><br>
+
+**Machine Learning**<br>
+A field of study that focuses on algorithms that automatically learn rules from data without needing to be explicitly programmed. It is a subfield of artificial intelligence that handles software to implement intelligence.<br>
+* Scikit-learn: A machine learning library using the Python API. It can be conveniently used with classes and functions provided by the Scikit-learn library. However, new machine learning algorithms are not quickly updated and are added after being sufficiently verified. Chapters 1 to 6 of this book cover machine learning algorithms included in Scikit-learn.<br><br>
+
+**Deep Learning**<br>
+Among machine learning algorithms, methods based on artificial neural networks are called deep learning.<br>
+* TensorFlow: Google’s open-source deep learning library. Chapters 7 to 9 of this book cover algorithms using deep learning with TensorFlow.<br>
+* PyTorch: Facebook’s open-source deep learning library.<br><br>
+
+
+## 01-2 Colab and Jupyter Notebook<br>
+**Google Colab**<br>
+A cloud-based Jupyter Notebook development environment. In other words, a service that allows you to test and save Python programs for free in a web browser. [link](https://colab.research.google.com "Colab").<br>
+Here, text cells (the minimum unit that can be executed in Colab, using Markdown and HTML), code cells, and output sections are distinguished.<br>
+
+**Jupyter**<br>
+Refers to an interactive programming environment. The representative product of the Jupyter project is the Notebook.<br><br>
+
+
+## 01-3 Market and Machine Learning Practice<br>
+**Fish Classification Problem**<br>
+
+<b>1-1. Bream Size Sample</b>
+```python
+bream_length = [25.4, 26.3, 26.5, 29.0, 29.0, 29.7, 29.7, 30.0, 30.0, 30.7, 31.0, 31.0, 
+31.5, 32.0, 32.0, 32.0, 33.0, 33.0, 33.5, 33.5, 34.0, 34.0, 34.5, 35.0, 
+35.0, 35.0, 35.0, 36.0, 36.0, 37.0, 38.5, 38.5, 39.5, 41.0, 41.0]
+bream_weight = [242.0, 290.0, 340.0, 363.0, 430.0, 450.0, 500.0, 390.0, 450.0, 500.0, 475.0, 500.0, 
+500.0, 340.0, 600.0, 600.0, 700.0, 700.0, 610.0, 650.0, 575.0, 685.0, 620.0, 680.0, 
+700.0, 725.0, 720.0, 714.0, 850.0, 1000.0, 920.0, 955.0, 925.0, 975.0, 950.0]
+```
+
+<b>1-2. Plotting Bream Scatter Plot with matplotlib</b>
+```python
+import matplotlib.pyplot as plt
+plt.scatter(bream_length, bream_weight)
+plt.xlabel('length')
+plt.ylabel('weight')
+plt.show()
+```
+{% raw %}<img src="https://youngyoony.github.io/assets/images/ml0103_scatterplot.png" alt="">{% endraw %}<br><br>
+
+<b>2-1. Smelt Size Sample</b>
+```python
+smelt_length = [9.8, 10.5, 10.6, 11.0, 11.2, 11.3, 11.8, 11.8, 12.0, 12.2, 12.4, 13.0, 14.3, 15.0]
+smelt_weight = [6.7, 7.5, 7.0, 9.7, 9.8, 8.7, 10.0, 9.9, 9.8, 12.2, 13.4, 12.2, 19.7, 19.9]
+``
+
+<b>2-2. Plotting Smelt Scatter Plot with matplotlib</b>
+```python
+plt.scatter(bream_length, bream_weight)
+plt.scatter(smelt_length, smelt_weight)
+plt.xlabel('length')
+plt.ylabel('weight')
+plt.show()<br><br>
+```
+{% raw %}<img src="https://youngyoony.github.io/assets/images/ml0103_scatterplot2.png" alt="">{% endraw %}
+
+<b>3\. Checking k-Nearest Neighbors</b>
+```python
+length = bream_length + smelt_length
+weight = bream_weight + smelt_weight
+fish_data = [[l, w] for l, w in zip(length, weight)] # List consisting of [l,w] as one element
+print(fish_data)
+```
+<span style="font-size:80%">✔︎ The zip() function extracts elements one by one from the listed lists.</span>  <br><br>
+
+
+<b>4\. Distinguish Bream as 1 and Smelt as 0 (Eventually, there should be 35 Breams and 14 Smelts)</b>
+```python
+fish_target = [1] * 35 + [0] * 14
+print(fish_target)
+```
+<span style="font-size:80%">✔︎ In machine learning, when distinguishing two, the target is set as 1, and others as 0.</span><br><br>
+
+
+<b>5\. Using Sklearn and KNeighborsClassifier</b>
+```python
+from sklearn.neighbors import KNeighborsClassifier
+```
+<span style="font-size:80%">✔︎ This code is identical to the following code.</span>  
+```python
+import sklearn
+model = sklearn.neighbors.KNeighborsClassifier()
+```
+```python
+kn = KNeighborsClassifier() #Creating an object of KNeighborsClassifier 
+```
+<span style="font-size:80%">✔︎ This object is trained to find criteria for Bream by passing fish_data and fish_target = Training</span>  
+```python
+kn.fit(fish_data, fish_target)
+```
+<span style="font-size:80%">✔︎ The fit() method trains the algorithm with the given data.</span>  
+```python
+kn.score(fish_data, fish_target)
+```
+<span style="font-size:80%">✔︎ The score() method evaluates how well the model kn is trained. An accuracy of 1 means all data were correctly matched, 0 means all were incorrect. Here, ‘model’ refers to a program implementing the machine learning algorithm.</span><br><br>
+
+<b>6\. Explanation of k-Nearest Neighbors Algorithm</b><br>
+When finding an answer for some data, look at other nearby data and use the majority as the answer. To predict new data, just look at which data is closest in straight-line distance.
+A disadvantage is that it is difficult to use when there is a large amount of data, and it requires a lot of memory.
+
+```python
+kn.predict([[30,600]])
+```
+The predict() method predicts the answer for new data. The predicted value of this point is 1. Since Bream is 1, the prediction is as expected.
+
+```python
+print(kn._fit_X)
+```
+{% raw %}<img src="https://youngyoony.github.io/assets/images/ml0103_sklearn.png" alt="width=50px;height:auto;">{% endraw %}
+```python
+print(kn._fit_y)
+```
+{% raw %}<img src="https://youngyoony.github.io/assets/images/ml0103_sklearn2.png" alt="">{% endraw %}
+In other words, the k-Nearest Neighbors algorithm does not particularly train. It stores all the data in the fit() method and then references the closest data to determine whether it is a Bream or Smelt when new data appears.
+The default value of the KNeighborsClassifier class is 5, and this criterion can be changed with the n_neighbors parameter.
+
+```python
+kn49 = KNeighborsClassifier(n_neighbors=49) #참고 데이터를 49개로 한 kn49 모델
+kn49.fit(fish_data, fish_target)
+kn49.score(fish_data, fish_target)
+```
+Since Breams take the majority of 35 out of 49 data in fish_data, it will always predict Bream for any data. The result of the above code is approximately 0.71428…, which is the same as the value of 35/49.<br>
+```python
+for n in range(5, 50):
+    kn.n_neighbors = n
+    score = kn.score(fish_data, fish_target)
+    if score < 1:
+        print(n, score)
+        break
+```
+This changes n_neighbors from 5 to 49 to find the value where the score starts to drop below 1.
+<br><br><br>
+
+**Summary** 1\. Measure the length and weight of 35 Breams and 14 Smelts and create a Python list. Also, prepare the data by combining the Bream & Smelt data into a list of lists.<br>
+2\. Used the k-Nearest Neighbors algorithm of Scikit-learn to predict data. This model predicts data by looking at the five closest data based on the majority rule.<br>
+3\. Used the fit(), score(), and predict() methods of the KNeighborsClassifier class.
+{: .notice--success}
+
+<br><br><br><br><br>
+
 ## 01-1 인공지능과 머신러닝, 딥러닝<br>
 **Artificial Intelligence**<br>
 사람처럼 학습하고 추론할 수 있는 지능을 가진 컴퓨터 시스템을 만드는 기술<br><br>

@@ -85,5 +85,23 @@ weight = bream_weight + smelt_weight
 fish_data = [[l, w] for l, w in zip(length, weight)] # [l,w]가 하나의 원소로 구성된 리스트
 print(fish_data)
 ```
+<span style="font-size:65%">*zip() 함수는 나열된 리스트에서 원소를 하나씩 꺼내주는 일을 한다.*</span>  
+
 
 4\. 도미는 1, 빙어는 0으로 구분 (최종적으로 도미 35마리, 빙어 14마리가 나와야 함)
+```python
+fish_target = [1] * 35 + [0] * 14
+print(fish_target)
+```
+<span style="font-size:65%">*머신러닝에서 2개를 구분하는 경우 찾으려는 대상을 1로, 그 외에는 0으로 놓는다.*</span>  
+
+
+5\. Sklearn 활용하기
+```python
+from sklearn.neighbors import KNeighborsClassifier
+```
+<span style="font-size:65%">*이 코드는 하단 코드와 동일한 코드다.*</span>  
+```python
+import sklearn
+model = sklearn.neighbors.KNeighborsClassifier()
+```

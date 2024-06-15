@@ -64,3 +64,5 @@ plt.xlabel('length')
 plt.ylabel('weight')
 plt.show()
 ```
+
+{% raw %}<img src="{{ site.url }}{{ site.baseurl }}/assets/images/ml0103_scatterplot.png" alt="Scatter Plot Description">{% endraw %}

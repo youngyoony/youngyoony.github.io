@@ -105,3 +105,20 @@ from sklearn.neighbors import KNeighborsClassifier
 import sklearn
 model = sklearn.neighbors.KNeighborsClassifier()
 ```
+```python
+kn = KNeighborsClassifier() #KNeighborsClassifier 클래스의 객체 만들기
+```
+<span style="font-size:65%">*이 객체에 fish_data와 fish_target을 전달하여 도미를 찾기 위한 기준을 학습시키기 = 훈련(training)*</span>  
+```python
+kn.fit(fish_data, fish_target)
+```
+<span style="font-size:65%">*fit() 메서드는 주어진 데이터로 알고리즘을 훈련시킨다.*</span>  
+```python
+kn.score(fish_data, fish_target)
+```
+<span style="font-size:65%">*score() 메서드는 모델 kn이 얼마나 잘 훈련되었는지를 평가하는 메서드다. = 정확도(accuracy) 1은 모든 데이터를 정확히 맞혔다는 것을 의미, 0은 전부 틀렸다는 걸 의미한다. 여기서 '모델'은 머신러닝 알고리즘을 구현한 프로그램을 의미한다.*</span>
+
+6\. k-최근접 이웃 알고리즘 설명
+**Artificial Intelligence**<br>
+
+

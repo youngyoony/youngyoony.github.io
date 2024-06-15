@@ -132,12 +132,12 @@ predict() 메서드는 새로운 데이터의 정답을 예측한다. 이 포인
 ```python
 print(kn._fit_X)
 ```
-![GGU](/assets/images/ml0103_sklearn.png){: .align-left .img-50}  
+![GGU](/assets/images/ml0103_sklearn.png){: .align-left .img-30}  
 
 ```python
 print(kn._fit_y)
 ```
-![GGU](/assets/images/ml0103_sklearn2.png){: .align-left .img-50}  
+![GGU](/assets/images/ml0103_sklearn2.png){: .align-left .img-30}  
 즉, k-최근접 이웃 알고리즘은 특별히 훈련되는 게 없다. fit() 메서드에 데이터를 모두 저장하고 있다가 새로운 데이터가 등장하면 가장 가까운 데이터를 참고하여 도미인지 빙어인지를 구분한다.
 KNeighborsClassifier 클래스의 기본값은 5이며, 이 기준은 n_neighbors 매개변수로 바꿀 수 있다.
 

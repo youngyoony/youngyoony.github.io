@@ -32,3 +32,4 @@ Cluster Manager (쿠버네티스 등) 는 이미 잘 만들어진 솔루션들�
 
 데이터가 들어오면 데이터를 적절히 잘라서 클러스터에 보내줘야 함. 그 역할을 distributed file system이 맡음 (기 존재하는 솔루션 활용 hdfs-Hadoop의-) - 그래서 Spark를 설치할 때 Hadoop도 설치하게 되는 것.
 
+도커 설치, 도커 compose, git pull

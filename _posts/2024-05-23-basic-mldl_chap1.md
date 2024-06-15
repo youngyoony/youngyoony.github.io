@@ -34,5 +34,20 @@ This page is for summarizing my self-study of the book “Self-Study Machine Lea
 ## 01-2 코랩과 주피터 노트북<br><br>
 
 **Google Colab**<br>
-클라우드 기반의 주피터 노브툭 개발 환경. 즉, 웹 브라우저에서 무료로 파이썬 프로그램을 테스트하고 저장할 수 있는 서비스. [link](https://colab.research.google.com "Colab").<br><br>
+클라우드 기반의 주피터 노브툭 개발 환경. 즉, 웹 브라우저에서 무료로 파이썬 프로그램을 테스트하고 저장할 수 있는 서비스. [link](https://colab.research.google.com "Colab").<br>
+여기서 텍스트 셀(cell - 코랩에서 실행할 수 있는 최소 단위 / 마크다운, HTML 사용 가능)과 코드 셀, 출력 란이 구분됨.<br>
 
+**Jupyter**<br>
+대화식 프로그래밍 환경을 의미함. 주피터 프로젝트의 대표 제품이 Notebook임.<br><br><br>
+
+
+## 01-3 마켓과 머신러닝<br><br>
+
+**생선 분류 문제**<br>
+```python
+if fish_length >= 30:
+  print("도미")
+```
+
+**Jupyter**<br>
+대화식 프로그래밍 환경을 의미함. 주피터 프로젝트의 대표 제품이 Notebook임.<br><br>

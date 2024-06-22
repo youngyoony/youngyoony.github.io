@@ -76,10 +76,7 @@ ns_df.head() # This will exclude the index from the output
 df.to_csv('namsan_202405.csv', index=False) # Or you can save the CSV without the index
 ```
 {% raw %}<img src="https://youngyoony.github.io/assets/images/da0101_readcsv1.png" alt="">{% endraw %}<br>
-{% raw %}<img src="https://youngyoony.github.io/assets/images/da0101_readcsv2.png" alt="">{% endraw %}<br>
-
-<br><br>
-
+{% raw %}<img src="https://youngyoony.github.io/assets/images/da0101_readcsv2.png" alt="">{% endraw %}<br><br>
 **Summary** 1\. Reviewed the most commonly used data analysis packages in Python.<br>
 2\. Loaded data using Pandas
 {: .notice--success}
@@ -145,10 +142,7 @@ ns_df.head() # 이 경우 index 제외됨
 df.to_csv('namsan_202405.csv', index=False) # 아니면 저장할 때부터 이렇게 저장하는 방법이 있음
 ```
 {% raw %}<img src="https://youngyoony.github.io/assets/images/da0101_readcsv1.png" alt="">{% endraw %}<br>
-{% raw %}<img src="https://youngyoony.github.io/assets/images/da0101_readcsv2.png" alt="">{% endraw %}<br>
-
-<br><br>
-
+{% raw %}<img src="https://youngyoony.github.io/assets/images/da0101_readcsv2.png" alt="">{% endraw %}<br><br>
 **Summary** 1\. 파이썬에서 가장 많이 쓰이는 데이터분석 패키지를 확인했다.<br>
 2\. Pandas로 데이터를 불러왔다.
 {: .notice--success}

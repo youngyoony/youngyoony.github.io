@@ -17,64 +17,30 @@ This page is for summarizing my self-study of the book “Data Analysis with Pyt
 
 
 
-## 01-1 데이터 분석이란<br>
-**NumPy**<br>
-Numerical Python의 줄임말로, 고성능 과학 계산과 다차원 배열(array)를 위한 파이썬 패키지임. 대부분의 파이썬 데이터 분석 패키지는 넘파이 배열을 사용함.<br><br>
-
-**Pandas**<br>
-파이썬 데이터 분석을 위한 전문 패키지. 데이터프레임(DataFrame) 사용. 넘파이가 계산에 초점을 맞추었다면, 판다스는 편리한 데이터 처리와 분석 작업 용도. 그래프 출력 기능 탑재.<br><br>
-
-**matplotlib**<br>
-파이썬 데이터 시각화를 위한 기본 패키지. 다른 파이썬 패키지와의 호환성이 높음. 이외에 seaborn, bokeh와 같은 시각화 패키지를 많이 사용<br><br>
-
-**SciPy**<br>
-넘파이를 기반으로 구축된 수학과 과학 계산 전문 패키지. 미분, 적분, 확률, 선형대수, 최적화를 알고리즘으로 구현.<br><br>
-
-**Scikit-learn**<br>
-파이썬의 머신러닝 패키지로, 넘파이와 사이파이에 의존함.<br><br>
-
-
-## 01-2 도서관 예시 데이터 읽기<br>
-**csv 파일 열기**<br>
+## 02-1 데이터 불러오기<br>
+**API**<br>
+* 두 프로그램이 서로 대화하기 위한 방법을 정의한 것.<br>
+* 웹 사이트는 웹 페이지를 전송하기 위해 웹 서버 소프트 웨어를 사용한다. (NGINX, Apache) 통신 규약<br>
+* HTTP는 인터넷에서 웹 페이지를 전송하는 기본 통신 방법 - Web Server to Web Browser(웹 데이터 요청(HTML)), Web Browser to Web Server(웹 데이터 요청(HTTP)). 이러한 HTTP 프로토콜을 사용해 API를 만드는 것이 웹 기반 API, 웹 기반 API를 만드는 것은 Software Engineer이고, 웹 기반 API를 사용하는 방법을 아는 게 데이터 분석가.<br>
+* HTML은 웹 브라우저가 화면에 표시할 수 있는 문서의 한 종류이자 웹 페이지를 위한 표준 언어임.<br>
+* HTTP로 데이터를 요청할 떄 CSV, JSON, XML 등을 선호하는 이유는 훨씬 간단하기 때문임. 특히 웹 기반 API에는 CSV보다는 JSON과 XML을 많이 사용함. CSV는 각 행마다 항목의 개수가 정확히 맞지 않으면 읽을 수 없고, 행과 열로만 구성되어 복잡한 데이터 구조를 표현하기 어렵다.<BR>
+**JSON**<br>
+* JavaScript Object Notation의 약자임. 원래는 자바스크립트 언어를 위해 만들어졌지만 현재는 범용적인 포맷으로 사용.<br>
+* 파이썬의 Dictionary와 List를 중첩해 놓은 형태. (e.g. {"name": "혼자 공부하는 데이터 분석"}<br>
 ```python
-import chardet
-with open('namsan.csv', mode='rb') as f:
-    d = f.readline()
-print(chardet.detect(d)) # 파일 인코딩 형식 확인
-
-with open('namsan.csv', encoding='EUC-KR') as f:
-    print(f.readline() # csv 파일 처음 몇 줄을 출력
-```
-<br>br
-
-**Pandas에서 csv 파일 열기**<br>
-```python
-import pandas as pd
-df = pd.read_csv('namsan.csv', encoding='EUC-KR', low_memory=False) # low_memory를 False로 지정 시, csv 파일을 한 번에 모두 읽어서 많은 메모리를 사용함.
-df = pd.read_csv('namsan.csv', encoding='euc_kr', dtype={'ISBN': str, '세트 ISBN': str, '주제분류번호': str}) # 문제가 생긴 데이터 타입을 문자열로 지정하여 읽는 코드
-df.head()
+d = {"name": "혼자 공부하는 데이터 분석"} # JSON 형식은 키과 값에 큰따옴표 사용.
+print(d['name'])
 ```
 <br>
-{% raw %}<img src="https://youngyoony.github.io/assets/images/da0102_dfhead.png" alt="">{% endraw %}<br>
-* 첫 번째 열은 데이터프레임의 Index임. 판다스는 행마다 0부터 시작하는 인덱스 번호를 자동으로 붙여 줌.<br>
-* csv의 첫 번째 행은 열 이름으로 인식. 첫 행을 열 이름으로 인식하지 않게 하려면 header 매개변수를 None으로 지정 & names 매개변수에 열 이름 리스트를 따로 전달. (names는 중복된 이름이 있어선 안 됨.)<br><br>
-
+* 파이썬 json 패키지를 사용해 딕셔너리 d를 JSON에 맞는 문자열로 바꾸기. - 프로그램상의 객체를 저장하거나 읽을 수 있는 형태로 변환하는 것을 직렬화(Serialization)이라고 함<br>
 ```python
-df.to_csv('namsan_202405.csv') # 저장하기
-
-with open('namsan_202405.csv') as f:
-    for i in range(3):
-        print(f.readline(), end='') # 3줄 읽어오기 end=''는 줄바꿈 문자를 출력하지 않음
-```<br>
-```python
-ns_df = pd.read_csv('namsan_202405.csv', low_memory=False)
-ns_df.head() # 이 경우 index까지 출력되게 됨
-ns_df = pd.read_csv('namsan_202405.csv', index_col=0, low_memory=False)
-ns_df.head() # 이 경우 index 제외됨
-################
-df.to_csv('namsan_202405.csv', index=False) # 아니면 저장할 때부터 이렇게 저장하는 방법이 있음
+d_str = json.dumps(d, ensure_ascii=False) # ensure_ascii 매개변수를 False로 지정한 이유는 딕셔너리 d에 한글이 포함되어 있기 때문임. json.dumps()는 ASCII 문자 외 다른 문자를 16진수로 출력함.
+print(d_str)
+print(type(d_str))
 ```
-
-**Summary** 1\. 파이썬에서 가장 많이 쓰이는 데이터분석 패키지를 확인했다.<br>
-2\. Pandas로 데이터를 불러왔다.
-{: .notice--success}
+* JSON 문자열을 파이썬 객체로 변환. - 직렬화된 정보를 다시 프로그램에서 실행 가능한 객체로 변환하는 것을  직렬화(Deserialization)이라고 함<br>
+```python
+d_str = json.dumps(d, ensure_ascii=False) # ensure_ascii 매개변수를 False로 지정한 이유는 딕셔너리 d에 한글이 포함되어 있기 때문임. json.dumps()는 ASCII 문자 외 다른 문자를 16진수로 출력함.
+print(d_str)
+print(type(d_str))
+```

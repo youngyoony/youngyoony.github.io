@@ -80,6 +80,7 @@ pd.read_json(d4_str)
 pd.DataFrame(d4)
 ```
 {% raw %}<img src="https://youngyoony.github.io/assets/images/da0102_json4.png" alt="">{% endraw %}<br><br>
+
 ## XML<br>
 * XML: eXtensible Markup Language<br>
 * XML은 엘리먼트(element)들이 계층 구조를 이루면서 정보를 표현. 태그는 <기호로 시작해서 >기호로 끝남.<br>
@@ -156,7 +157,7 @@ for book in books.findall('book'):
     print(year)
     print()
 ```
-* <books>의 자식 엘리먼트를 모두 찾아 그 안에 담긴 텍스트를 잘 출력함.
+* \<books>의 자식 엘리먼트를 모두 찾아 그 안에 담긴 텍스트를 잘 출력함.
 {% raw %}<img src="https://youngyoony.github.io/assets/images/da0102_xml7.png" alt="">{% endraw %}<br>
 * JSON의 경우 API 전달 텍스트를 json.loads() 함수를 사용해 파이썬 객체로 바꾸어 내용 추출 <> XML은 xml.etree.ElementTree 모듈에 있는 fromstring() 함수를 사용하며 부모(루트) 엘리먼트를 얻고, findall() 메서드로 자식 엘리먼트에 담긴 텍스트를 추출할 수 있음.<br>
 * pandas에서 xml을 읽어오는 방법<br>

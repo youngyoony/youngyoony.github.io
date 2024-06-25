@@ -83,7 +83,7 @@ pd.DataFrame(d4)
 
 ## XML<br>
 * XML: eXtensible Markup Language<br>
-* XML은 엘리먼트(element)들이 계층 구조를 이루면서 정보를 표현. 태그는 <기호로 시작해서 >기호로 끝남.<br>
+* XML은 엘리먼트(element)들이 계층 구조를 이루면서 정보를 표현. 태그는 \'<' 기호로 시작해서 \'>' 기호로 끝남.<br>
 * XML 문자열을 파이썬 객체로 변환하기 (Deserialization)<br>
 ```python
 import xml.etree.ElementTree as et
@@ -165,6 +165,11 @@ for book in books.findall('book'):
 pd.read_xml(x2_str)
 ```
 <br><br>
-## API<br>
-* XML: eXtensible Markup Language<br>
-* XML은 엘리먼트(element)들이 계층 구조를 이루면서 정보를 표현. 태그는 <기호로 시작해서 >기호로 끝남.<br>
+## 실제 API 호출<br>
+* 호출 URL 형식: http://
+```python
+### SUMMONER-V4, get summoner profile by summoner name, (Riot Developer Portal (riotgames.com)) accepts a player’s in-game name (their summoner name) and returns their profile data.
+### MATCH-V5, get match id’s by player puuid, (Riot Developer Portal (riotgames.com)) accepts a players puuid and returns match ids from the last 20 games they’ve played.
+### MATCH-V5, get match information by match id, (Riot Developer Portal (riotgames.com)) takes a match id and returns information about that match.
+```
+<br>
